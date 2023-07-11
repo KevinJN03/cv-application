@@ -1,0 +1,10 @@
+div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+div input{
+    width: 50%
+}
