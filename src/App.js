@@ -1,10 +1,9 @@
 import { useState } from "react";
 import PersonalInfo from "./Components/CVForm/PersonalInfo";
-import Preview from "./Components/CVPreview/previewPersonal";
 import Experience from "./Components/CVForm/experience";
-import Education from "./Components/CVPreview/previewEducation";
-import PreviewEducation from "./Components/CVPreview/previewEducation";
-import PreviewExperience from "./Components/CVPreview/previewExperience";
+import Education from "./Components/CVForm/education";
+import Preview from "./Components/CVPreview/preview";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [firstName, setFirstName] = useState(null);
@@ -14,13 +13,9 @@ function App() {
   const [address, setAddress] = useState(null);
   const [email, setEmail] = useState(null);
   const [phoneNumber, setPhoneNumber] = useState(null);
-
-  const [position, setPosition] = useState(null)
-  const [company, setCompany] = useState(null)
-  const [start, setStart] = useState(null)
-  const [end, setEnd] = useState(null)
-  const [desc, setDesc] = useState(null)
-  const [experience, setExperience] =  useState([])
+  const [experience, setExperience] = useState([]);
+  const [education, setEducation] = useState([]);
+  const [form, setForm] = useState([]);
 
   function onFirstName(event) {
     setFirstName(event.target.value);
@@ -30,7 +25,7 @@ function App() {
   }
 
   function onTitle(event) {
-    setTitle (event.target.value);
+    setTitle(event.target.value);
   }
 
   function onEmail(event) {
@@ -47,29 +42,63 @@ function App() {
     setPhoneNumber(event.target.value);
   }
 
-  function addExperience(e){
-    e.preventDefault()
-    console.log(e.target[0].value)
-    const position =e.target[0].value;
+  function addExperience(e) {
+    e.preventDefault();
+    console.log(e.target[0].value);
+    const id = uuidv4();
+    const position = e.target[0].value;
     const company = e.target[1].value;
     const start = e.target[2].value;
     const end = e.target[3].value;
-    const desc= e.target[4].value;
+    const desc = e.target[4].value;
 
-    let newExperience = {position, company, start,end, desc}
+    let newExperience = { id, position, company, start, end, desc };
 
-    console.log(newExperience)
-    setCompany(company)
-    setExperience([...experience, newExperience])
-    console.log("experience", experience)
-    //(e.target).forEach(num => console.log(num.value))
-
-
+    console.log(newExperience);
+    setExperience([...experience, newExperience]);
+    console.log("experience", experience);
+    setForm([...form, { Experience }]);
+    console.log("form: ", form);
+    console.log("lwfsydfhhisdf");
   }
 
-  function addEducation(e){
-e.preventDefault()
+  function deleteExperience(id) {
+    console.log(id);
+    setExperience((currentExperience) => {
+      return currentExperience.filter((exp) => exp.id !== id);
+    });
   }
+
+  function saveExperience(id, e) {
+    e.preventDefault();
+
+    const position = e.target[0].value;
+    const company = e.target[1].value;
+    const start = e.target[2].value;
+    const end = e.target[3].value;
+    const desc = e.target[4].value;
+    let updateExp = { position, company, start, end, desc };
+    setExperience(
+      experience.map((exp) => {
+        if (exp.id === id) {
+          return { ...exp, ...updateExp };
+        }
+      })
+    );
+  }
+
+  function addEducation(e) {
+    e.preventDefault();
+    console.log("Clicked on Add education");
+    const id = uuidv4();
+    const course = e.target[0].value;
+    const university = e.target[1].value;
+    const start = e.target[2].value;
+    const end = e.target[3].value;
+    let newEducation = { id, course, university, start, end };
+    setEducation([...education, newEducation]);
+  }
+
   return (
     <>
       <PersonalInfo
@@ -81,8 +110,13 @@ e.preventDefault()
         onAddress={onAddress}
         onPhoneNumber={onPhoneNumber}
       />
-      <Experience addExperience={addExperience}/>
-      <Education addEducation = {" "}/>
+      <Experience
+        onSubmit={addExperience}
+        deleteExperience={deleteExperience}
+        experience={experience}
+        saveExperience={saveExperience}
+      />
+      <Education onSubmit={addEducation} />
       <Preview
         firstName={firstName}
         lastName={lastName}
@@ -91,9 +125,9 @@ e.preventDefault()
         description={decription}
         address={address}
         email={email}
-        company={company}
+        experience={experience}
+        education={education}
       />
-      
     </>
   );
 }
