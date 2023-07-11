@@ -14,10 +14,13 @@ export default function Education({addEducation, education, deleteEducation, sav
                 <input type="text" placeholder="University" defaultValue={edu.university}></input>
                 <input type="text" placeholder="Start Year" defaultValue={edu.start}></input>
                 <input type="text" placeholder="Graduated Year" defaultValue={edu.end}></input>
+                <div className="btn-container">
                 <button type="submit" className="btn btn-save">Save</button>
                 <button type="button" className="btn btn-delete" onClick={()=> deleteEducation(edu.id)}>Delete</button>
+                </div>
                 </form>
-                </li>)
+                </li>
+                )
                 
             })}
             <form onSubmit={addEducation}>
@@ -25,7 +28,7 @@ export default function Education({addEducation, education, deleteEducation, sav
             <input type="text" placeholder="University/School"></input>
             <input type="text" placeholder="Start Year"></input>
             <input type="text" placeholder="Graduated Year"></input>
-            <button type="submit" className="btn">Add</button>
+            <button type="submit" className="btn add-btn">Add</button>
             </form>
         </section>
     )

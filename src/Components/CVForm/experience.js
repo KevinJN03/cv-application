@@ -4,13 +4,13 @@ export default function Experience({ onSubmit, experience, saveExperience, delet
 
   return (
     <section id="Experience">
-      <div id="experience-container">
+     
         <h2>Work Experience</h2>
         {experience.map((i) => {
           return (
-            <>
+            <div key={i.id}>
               <li key={i.id}>
-                <form key={i.id} onSubmit={(e) => saveExperience(i.id, e)}>
+                <form key={i.id} onSubmit={(e) => saveExperience(e, i.id)}>
                   <input
                     placeholder="Position"
                     required
@@ -32,28 +32,29 @@ export default function Experience({ onSubmit, experience, saveExperience, delet
                     defaultValue={i.end}
                   ></input>
                   <input
-                    placeholder="Description"
+                    placeholder="Description" id="description"
                     required
                     defaultValue={i.desc}
                   ></input>
-                  <button type="submit">Save</button>
-                  <button type="button" onClick={(e) => deleteExperience(i.id)}>Delete</button>
+                  <div className="btn-container">
+                  <button type="submit" className="btn btn-save">Save</button>
+                  <button type="button" className="btn btn-delete"onClick={(e) => deleteExperience(i.id)}>Delete</button>
+                  </div>
                 </form>
               </li>
-            </>
-          );
+            </div>
+          )
         })}
         <form onSubmit={onSubmit}>
           <input placeholder="Position" required></input>
           <input placeholder="Company" required></input>
           <input placeholder="Start Date" required></input>
           <input placeholder="End Date" required></input>
-          <input placeholder="Description" required></input>
-          <button id="addbtn" className="btn" type="submit">
+          <textarea placeholder="Description" className="description" required></textarea>
+          <button className="btn add-btn" type="submit">
             Add
           </button>
         </form>
-      </div>
     </section>
   );
 }
