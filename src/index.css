@@ -148,11 +148,13 @@ input:active{
   object-fit: cover;
   display: flex;
   align-items: center;
+  transition: transform 0.9s ease-in-out
 
 }
 
 #footer img:hover {
-fill: orange !important
+transform: rotate(360deg);
+
 }
 
 @media screen and (min-width: 1024px){
