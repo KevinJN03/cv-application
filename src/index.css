@@ -125,7 +125,12 @@ input:active{
     grid-template-columns: repeat(auto-fit, minMax(0px, 1fr));
   }
 }
-
+@media screen and (min-width: 300px ) and (max-width:780px){
+  .content{
+    width: 95vw;
+    
+  }
+}
 
 @media print {
   .content {
