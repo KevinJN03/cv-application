@@ -5,7 +5,9 @@ export default function Education({addEducation, education, deleteEducation, sav
     
     return(
         <section id="Education">
-            <h2>Education</h2>
+            <h2 style={{
+                margin: "20px 0"
+            }}>Education</h2>
             {education.map((edu)=> {
                 return(
                 <li key={edu.id}>

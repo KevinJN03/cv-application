@@ -35,7 +35,7 @@ align-items: center;
   background: var(--darkBlue);
 width: 100%;
 padding: 20px 0;
-margin-bottom: 10px;
+margin-bottom: 20px;
 }
 #header h1 {
 color: white
@@ -48,6 +48,8 @@ color: white
   height: 85vh;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  height: auto;
+  min-height: 80vh;
 }
 
 .cv-form {

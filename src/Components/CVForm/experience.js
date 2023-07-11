@@ -5,7 +5,9 @@ export default function Experience({ onSubmit, experience, saveExperience, delet
   return (
     <section id="Experience">
      
-        <h2>Work Experience</h2>
+        <h2 style={{
+                margin: "20px 0"
+            }}>Work Experience</h2>
         {experience.map((i) => {
           return (
             <div key={i.id}>
