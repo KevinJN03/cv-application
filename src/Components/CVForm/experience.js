@@ -1,21 +1,11 @@
 import { useState } from "react";
 
 export default function Experience({ onSubmit, experience, saveExperience, deleteExperience }) {
-  const [edit, setEdit] = useState("null");
+
   return (
     <section id="Experience">
       <div id="experience-container">
         <h2>Work Experience</h2>
-        <form onSubmit={onSubmit}>
-          <input placeholder="Position" required></input>
-          <input placeholder="Company" required></input>
-          <input placeholder="Start Date" required></input>
-          <input placeholder="End Date" required></input>
-          <input placeholder="Description" required></input>
-          <button id="addbtn" className="btn" type="submit">
-            Add
-          </button>
-        </form>
         {experience.map((i) => {
           return (
             <>
@@ -53,6 +43,16 @@ export default function Experience({ onSubmit, experience, saveExperience, delet
             </>
           );
         })}
+        <form onSubmit={onSubmit}>
+          <input placeholder="Position" required></input>
+          <input placeholder="Company" required></input>
+          <input placeholder="Start Date" required></input>
+          <input placeholder="End Date" required></input>
+          <input placeholder="Description" required></input>
+          <button id="addbtn" className="btn" type="submit">
+            Add
+          </button>
+        </form>
       </div>
     </section>
   );

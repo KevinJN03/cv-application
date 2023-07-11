@@ -1,5 +1,5 @@
 
-import "./style.css"
+
 export default function PreviewPersonal({firstName, lastName,title, address, email, phoneNumber, description}){
 
     return(

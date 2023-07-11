@@ -1,18 +1,31 @@
 
 
-export default function Education({onSubmit}){
+export default function Education({addEducation, education, deleteEducation, saveEducation}){
 
     
     return(
         <section id="Education">
             <h2>Education</h2>
-            <form onSubmit={onSubmit}>
+            {education.map((edu)=> {
+                return(
+                <li key={edu.id}>
+                <form onSubmit={(e)=> saveEducation(e, edu.id)}>
+                <input type="text" placeholder="Course" defaultValue={edu.course}></input>
+                <input type="text" placeholder="University" defaultValue={edu.university}></input>
+                <input type="text" placeholder="Start Year" defaultValue={edu.start}></input>
+                <input type="text" placeholder="Graduated Year" defaultValue={edu.end}></input>
+                <button type="submit" className="btn btn-save">Save</button>
+                <button type="button" className="btn btn-delete" onClick={()=> deleteEducation(edu.id)}>Delete</button>
+                </form>
+                </li>)
+                
+            })}
+            <form onSubmit={addEducation}>
             <input type="text" placeholder="Course"></input>
-            <input type="text" placeholder="University"></input>
+            <input type="text" placeholder="University/School"></input>
             <input type="text" placeholder="Start Year"></input>
             <input type="text" placeholder="Graduated Year"></input>
             <button type="submit" className="btn">Add</button>
-            <button type="submit" className="btn">Delete</button>
             </form>
         </section>
     )

@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+#preview-personal, #preview-experience {
+  border: 3px solid black;
+  min-width: 200px;
+  min-height: 200px
+}
+
+.content {
+  width: 100%
+}
+
+@media screen and (min-width: 1024px){
+  .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minMax(0px, 1fr));
+  }
+}

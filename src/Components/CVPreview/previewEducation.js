@@ -1,7 +1,7 @@
-import "./style.css";
+
 export default function PreviewEducation({ id,course, university, end, start }) {
   return (
-    <li key={id}>
+    <li id={id}>
       <p>{course}</p>
       <p>{university}</p>
       <p>{start}</p>
