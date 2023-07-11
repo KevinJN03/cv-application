@@ -1,7 +1,7 @@
 import PreviewEducation from "./previewEducation";
 import PreviewExperience from "./previewExperience";
 import PreviewPersonal from "./previewPersonal";
-import "./preview.css"
+import "./preview.css";
 
 export default function Preview({
   firstName,
@@ -15,9 +15,7 @@ export default function Preview({
   deleteExperience,
   editExperience,
   education,
-
 }) {
-
   return (
     <section className="cv-preview">
       <PreviewPersonal
@@ -32,10 +30,10 @@ export default function Preview({
       <h2>Experience</h2>
       {experience.map((exp) => {
         return (
-          <PreviewExperience key={exp.id}
+          <PreviewExperience
+            key={exp.id}
             deleteExperience={deleteExperience}
             editExperience={editExperience}
-            
             id={exp.id}
             position={exp.position}
             company={exp.company}
@@ -45,14 +43,18 @@ export default function Preview({
           />
         );
       })}
-      <h2 style={{
-        marginTop: "20px",
-        
-      }}>Education</h2>
+      <h2
+        style={{
+          marginTop: "20px",
+        }}
+      >
+        Education
+      </h2>
       {education.map((edu) => {
         return (
-          <PreviewEducation key={edu.id}
-          id={edu.id}
+          <PreviewEducation
+            key={edu.id}
+            id={edu.id}
             course={edu.course}
             university={edu.university}
             end={edu.end}
@@ -60,7 +62,6 @@ export default function Preview({
           />
         );
       })}
-      
     </section>
   );
 }

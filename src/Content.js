@@ -247,17 +247,21 @@ other interns and 4 analysts to set new goals`,
             deleteEducation={deleteEducation}
           />
           <section className="btn-container">
-      <button className="btn btn-load" onClick={loadExample}>Load Example</button>
-      <button className="btn btn-reset" onClick={reset}>Reset</button>
-      <ReactToPrint
-        trigger={() => {
-          return <button className="btn btn-print">Print CV</button>;
-        }}
-        content={() => componentRef}
-        documentTitle="Cv"
-        pageStyle="print"
-      />
-      </section>
+            <button className="btn btn-load" onClick={loadExample}>
+              Load Example
+            </button>
+            <button className="btn btn-reset" onClick={reset}>
+              Reset
+            </button>
+            <ReactToPrint
+              trigger={() => {
+                return <button className="btn btn-print">Print CV</button>;
+              }}
+              content={() => componentRef}
+              documentTitle="Cv"
+              pageStyle="print"
+            />
+          </section>
         </section>
 
         <div className="preview" ref={(el) => (componentRef = el)}>
@@ -274,7 +278,6 @@ other interns and 4 analysts to set new goals`,
           />
         </div>
       </div>
-      
     </>
   );
 }
