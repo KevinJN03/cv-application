@@ -1,6 +1,4 @@
 import React, { Component, useState } from "react";
-
-import PreviewPersonal from "../CVPreview/previewPersonal";
 function PersonalInfo({onFirstName, onLastName, onAddress, onEmail, onDescription, onTitle, onPhoneNumber}) {
   
   return (
