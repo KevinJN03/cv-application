@@ -132,6 +132,8 @@ input:active{
   font-size: 1.2rem; 
   font-weight: 600;
   margin-top: 20px;
+  position: absolute;
+  bottom: 0;
  
 }
 
@@ -148,7 +150,8 @@ input:active{
   object-fit: cover;
   display: flex;
   align-items: center;
-  transition: transform 0.9s ease-in-out
+  transition: transform 0.9s ease-in-out;
+
 
 }
 
