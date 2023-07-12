@@ -132,7 +132,7 @@ input:active{
   font-size: 1.2rem; 
   font-weight: 600;
   margin-top: 20px;
-  position: absolute;
+  position: sticky;
   bottom: 0;
  
 }
